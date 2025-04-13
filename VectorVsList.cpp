@@ -2,8 +2,8 @@
 #include <vector>
 #include <list>
 #include <chrono>
-#include <cstdlib>  // For rand() and srand()
-#include <ctime>    // For time()
+#include <cstdlib> 
+#include <ctime>    
 
 using namespace std;
 using namespace chrono;
@@ -16,12 +16,10 @@ int main() {
     vector<int> randomNumbers;
     srand(time(0));
 
-    // Generate n random numbers
     for (int i = 0; i < n; i++) {
         randomNumbers.push_back(rand() % 100000);
     }
 
-    // Sorted insertion into vector using linear search
     vector<int> sortedVec;
     auto startVec = high_resolution_clock::now();
 
@@ -36,7 +34,6 @@ int main() {
     auto endVec = high_resolution_clock::now();
     auto vecDuration = duration_cast<microseconds>(endVec - startVec);
 
-    // Sorted insertion into linked list using linear search
     list<int> sortedList;
     auto startList = high_resolution_clock::now();
 
@@ -52,7 +49,7 @@ int main() {
     auto endList = high_resolution_clock::now();
     auto listDuration = duration_cast<microseconds>(endList - startList);
 
-    // Results
+   
     cout << "\nTime taken to insert " << n << " elements into a sorted vector (linear search): "
          << vecDuration.count() << " microseconds." << endl;
 
